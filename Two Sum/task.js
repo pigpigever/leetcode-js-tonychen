@@ -9,7 +9,7 @@ var twoSum = function(nums, target) {
         if(map[nums[i]] !== undefined){
             return [parseInt(map[nums[i]]), parseInt(i)];
         }else{
-            map[target - nums[i]] = i;
+            map[target - nums[i]] = i
         }   
     }
 }
