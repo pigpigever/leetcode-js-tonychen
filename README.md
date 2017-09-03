@@ -10,4 +10,4 @@
 - difficult
   比较困难的题目
 
-目前能力有限，只``AC``了 \[LeetCode](https://leetcode.com/) 上的``Easy``题目
+目前能力有限，只``AC``了 [LeetCode](https://leetcode.com/) 上的``Easy``题目
