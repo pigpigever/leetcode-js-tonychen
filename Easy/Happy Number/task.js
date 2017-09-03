@@ -3,8 +3,7 @@
  * @return {boolean}
  */
 var isHappy = function (n) {
-    let result = String(n).split(''),
-        counter = 1
+    let result = String(n).split(''),counter = 1
     let collections = new Set();
     collections.add(result.join(''))
 
