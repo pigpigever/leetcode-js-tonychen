@@ -9,7 +9,7 @@
   简单的题目，思路简单或者数据量不大，通常可以快速解决
 - Medium
   中等题目
-- difficult
+- Difficult
   比较困难的题目
 
 目前能力有限，只``AC``了 [LeetCode](https://leetcode.com/) 上的``Easy``题目
