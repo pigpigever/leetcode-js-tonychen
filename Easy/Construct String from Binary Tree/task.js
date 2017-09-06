@@ -14,15 +14,15 @@ var tree2str = function (t) {
     let result = '',
         stack = [];
     stack.push(t);
-    while(stack.length){
+    while (stack.length) {
         let i = stack.length;
-        while(i--){
+        while (i--) {
             let output = stack.shift();
             console.log(output);
-            if(output.left !== null){
+            if (output.left !== null) {
                 stack.push(output.left);
             }
-            if(output.right !== null){
+            if (output.right !== null) {
                 stack.push(output.right);
             }
         }
