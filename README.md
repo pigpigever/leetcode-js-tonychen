@@ -12,4 +12,4 @@
 - Difficult  
     困难题目：目前``AC`` 的数量比较少
 
-目前能力有限，只``AC``了 [LeetCode](https://leetcode.com/) 上的``Easy``题目
+目前能力有限，``AC``的大部分是 [LeetCode](https://leetcode.com/) 上的``Easy``题目，其他类型的题目解法会陆续放到这个仓库
