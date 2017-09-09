@@ -2,6 +2,7 @@
  * @param {string} s
  * @return {number}
  */
+//解法1
 var lengthOfLongestSubstring = function (s) {
     let max = 0,
         hashMap = new Set()
@@ -19,3 +20,18 @@ var lengthOfLongestSubstring = function (s) {
     }
     return max
 };
+//解法2
+function lengthOfLongestSubstring(s) {
+    const map = {};
+    var left = 0;
+
+    return s.split('').reduce((max, v, i) => {
+        left = map[v] >= left ? map[v] + 1 : left;
+        console.log(`map[${v}]:${map[v]}`)
+        map[v] = i;
+        console.log(`map[${v}]:${map[v]},left:${left},max:${Math.max(max, i - left + 1)}`)
+        return Math.max(max, i - left + 1);
+    }, 0);
+}
+
+console.log(lengthOfLongestSubstring("abcaaacb"))
