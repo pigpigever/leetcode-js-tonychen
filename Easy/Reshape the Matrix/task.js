@@ -21,4 +21,4 @@ var matrixReshape = function (nums, r, c) {
         result.push(temp)
     }
     return result
-};
+}
