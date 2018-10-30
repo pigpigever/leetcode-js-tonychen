@@ -28,7 +28,7 @@ using namespace std;
 int main () {
 	long int start = 1, end;
 	while (cin>>end) {
-		cout<<  (start + end) * end / 2<<endl<<endl;
+		cout<< (start + end) * end / 2 <<endl<<endl;
 	}
 	return 0;
 }
