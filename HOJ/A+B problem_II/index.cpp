@@ -26,6 +26,7 @@ int main () {
 	for (int i = 0; i < T; i++) {
 		memset(a, 0, sizeof(a));
 		memset(b, 0, sizeof(b));
+		memset(c, 0, sizeof(c));
 		scanf("%s%s", &a, &b);
         printf("Case %d:\n%s + %s = ", i + 1, a, b);
 		// 翻转两个数组
