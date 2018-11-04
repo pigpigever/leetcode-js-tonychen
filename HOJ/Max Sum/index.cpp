@@ -5,14 +5,12 @@ using namespace std;
 
 const int _max = 100001;
 int arr[_max];
-int result[_max];
 
 int main () {
 	int n, line;
 	cin>>n;
 	for (int i = 1; i <= n; i++) {
 		int maxNum, start = 1, end = 1, sum = 0, tempStart = 1;
-		memset(result, 0, sizeof(result));
 		memset(arr, 0, sizeof(arr));
 		cin>>line;
 		for (int j = 1; j <= line; j++) {
