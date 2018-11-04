@@ -49,7 +49,7 @@ int main () {
  * 
 */
 void dealWithStr (char* a, char* b, char* c) {
-	char temp = 48;
+	int temp = 48;
 	int aLength = strlen(a);
 	int bLength = strlen(b);
 	int maxLength = max(aLength, bLength);
