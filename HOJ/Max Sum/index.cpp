@@ -18,7 +18,7 @@ int main () {
 		}
 		maxNum = arr[1];
 		for (int j = 1; j <= line; j++) {
-			sum += arr[j];
+			sum = max(sum + arr[j], arr[j]);
 			if (sum > maxNum) {
 				maxNum = sum;
 				start = tempStart;
