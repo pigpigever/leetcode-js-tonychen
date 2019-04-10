@@ -10,48 +10,17 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-	let tempArray = s.split('')
 	let stack = []
-
-	if (tempArray.length === 0) {
-		return true
-	}
-
-	if (tempArray.length === 1) {
-		return false
-	}
-
-	stack.unshift(tempArray.shift())
-	while (tempArray.length) {
-		switch (tempArray[0]) {
-			// 如果栈顶第一字符是左括号，那么继续入栈
-			case '(':
-			case '{':
-			case '[':
-				stack.unshift(tempArray.shift())
-				break
-			// 如果栈顶第一个字符不是左括号，那么尝试匹配
-			case ')':
-			case '}':
-			case ']':
-				if (
-					tempArray[0] === ')' && stack[0] === '(' ||
-					tempArray[0] === '}' && stack[0] === '{' ||
-					tempArray[0] === ']' && stack[0] === '[') {
-						tempArray.shift()
-						stack.shift()
-				} else {
-					return false
-				}
-				break
-			default:
-				break
+	for (let i = 0; i < s.length; i++) {
+		if (s[i] === '(') {
+			stack.push(')')
+		} else if (s[i] === '[') {
+			stack.push(']')
+		} else if (s[i] === '{') {
+			stack.push('}')
+		} else if (!stack.length || stack.pop() !== s[i]) {
+			return false
 		}
 	}
-	if (!stack.length && !tempArray.length) {
-		return true
-	}
-	return false
+	return !stack.length
 };
-
-console.log(isValid('{{[}]}'))
