@@ -4,12 +4,14 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    var map = {};
-    for(var i in nums){
-        if(map[nums[i]] !== undefined){
-            return [parseInt(map[nums[i]]), parseInt(i)];
-        }else{
-            map[target - nums[i]] = i
-        }   
+    const map = {}
+
+    for (let i = 0, len = nums.length; i < len; i++) {
+        if (map[nums[i]] >= 0) {
+            return [map[nums[i]], i]
+        }
+        map[target - nums[i]] = i
     }
 }
+
+console.log(twoSum([ 1,2,3,4,5 ], 3))
