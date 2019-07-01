@@ -12,15 +12,20 @@
 // ]
 
 // ((( 三个左括号
-// (( 两个左括号
 
 /**
  * @param {number} n
  * @return {string[]}
  */
 var generateParenthesis = function(n) {
-	let result = []
-	
+	const result = []
+
+	function dfs (index, n) {
+		for (let i = index; i < n; i++) {
+
+		}
+	}
+	dfs(0, n)
 };
 
 
