@@ -3,7 +3,7 @@
  * @return {string[][]}
  */
 var solveNQueens = function(n) {
-	let chess = [], result = []
+	let chess = [], result = [], pos = []
 
 	init()
 	dfs(0)
@@ -11,33 +11,28 @@ var solveNQueens = function(n) {
 
 	function dfs (index) {
 		if (index === n) {
-			let tmp = JSON.parse(JSON.stringify(chess))
-			result.push(tmp.map((item) => item.join('')))
+			for (let i = 0; i < n; i++) {
+				chess[i] = []
+				for (let j = 0; j < n; j++) {
+					chess[i][j] = '.'
+ 				}
+			}
+			for (let i = 0; i < n; i++) {
+				chess[i][pos[i]] = 'Q'
+			}
+			result.push(chess.map((item) => item.join('')))
 		}
 		for (let j = 0; j < n; j++) {
 			if (isOk(index, j)) {
-				chess[index][j] = 'Q'
+				pos[index] = j
 				dfs(index + 1)
-				chess[index][j] = '.'
+				pos[index] = -1
 			}
 		}
 	}
 	function isOk (x, y) {
-		// 判断上方
 		for (let i = 0; i < x; i++) {
-			if (chess[i][y] === 'Q') {
-				return false
-			}
-		}
-		// 判断左上方
-		for (let i = x - 1, j = y - 1; i >= 0 && j >= 0; i--, j--) {
-			if (chess[i][j] === 'Q') {
-				return false
-			}
-		}
-		// 判断右上方
-		for (let i = x - 1, j = y + 1; i >= 0 && j < n; i--, j++) {
-			if (chess[i][j] === 'Q') {
+			if (y === pos[i] || (Math.abs(x - i) === Math.abs(y - pos[i]))) {
 				return false
 			}
 		}
@@ -45,10 +40,7 @@ var solveNQueens = function(n) {
 	}
 	function init () {
 		for (let i = 0; i < n; i++) {
-			chess[i] = []
-			for (let j = 0; j < n; j++) {
-				chess[i][j] = '.'
-			}
+			pos[i] = -1
 		}
 	}
 };
