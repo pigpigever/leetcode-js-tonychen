@@ -8,7 +8,7 @@ var countAndSay = function(n) {
     for (let i = 2; i <= n; i++) {
         let tmp = result[i - 1], str = '', flag = 0
         const len = tmp.length
-        for (let j = 1; j < len; j++) {
+        for (let j = 1; j <= len; j++) {
             if (tmp[j - 1] === tmp[j]) {
                 flag++
             } else if (flag > 0) {
@@ -18,11 +18,11 @@ var countAndSay = function(n) {
                 str += '1' + tmp[j - 1]
             }
         }
-        if (flag > 0) {
-            str += (flag + 1) + '' + tmp[len - 1]
-        } else {
-            str += '1' + tmp[len - 1]
-        }
+        // if (flag > 0) {
+        //     str += (flag + 1) + '' + tmp[len - 1]
+        // } else {
+        //     str += '1' + tmp[len - 1]
+        // }
         result.push(str)
     }
     return result[n]
