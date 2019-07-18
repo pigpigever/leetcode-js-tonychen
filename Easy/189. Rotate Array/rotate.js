@@ -18,5 +18,3 @@ var rotate = function(nums, k) {
         } while (i !== current)
     }
 };
-
-console.log(rotate([1,2,3,4,5,6],2))
