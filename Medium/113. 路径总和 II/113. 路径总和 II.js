@@ -23,13 +23,14 @@ var pathSum = function(root, sum) {
             }
         }
         if (root) {
-            if (root.left) {
-                tmp.push(root.left.val)
-                dfs(root.left, root.left.val + ans, tmp)
+            let left = root.left, right = root.right
+            if (left) {
+                tmp.push(left.val)
+                dfs(left, left.val + ans, tmp)
             }
-            if (root.right) {
-                tmp.push(root.right.val)
-                dfs(root.right, root.right.val + ans, tmp)
+            if (right) {
+                tmp.push(right.val)
+                dfs(right, right.val + ans, tmp)
             }
             tmp.pop()
         }
