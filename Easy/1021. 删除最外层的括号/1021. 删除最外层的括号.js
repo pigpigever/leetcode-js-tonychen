@@ -3,25 +3,20 @@
  * @return {string}
  */
 var removeOuterParentheses = function(S) {
-    let stack = [], str = '', res = ''
-    let i = 0, len = S.length
-
+    let count = 1, i = 1, len = S.length, res = ''
     while (i < len) {
-        let top = stack[stack.length - 1]
-
-        if (top === '(') {
-            if (S.charAt(i) === '(') {
-                stack.push(S.charAt(i))
-            } else {
-                stack.pop()
-            }
-            str += S.charAt(i)
+        if (S.charAt(i) === '(') {
+            count++
         } else {
-            res += str.substring(1, str.length - 1)
-            stack.push(S.charAt(i))
-            str = S.charAt(i)
+            count--
         }
-        i++
+        if (count !== 0) {
+            res += S.charAt(i)
+            i++
+        } else {
+            count = 1
+            i += 2
+        }
     }
-    return res + str.substring(1, str.length - 1)
+    return res
 };
