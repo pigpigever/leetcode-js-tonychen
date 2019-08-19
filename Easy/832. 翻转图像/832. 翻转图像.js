@@ -7,12 +7,12 @@ var flipAndInvertImage = function(A) {
         let j = 0, k = A[i].length - 1
         while (j < k) {
             [A[i][j], A[i][k]] = [A[i][k], A[i][j]]
-            A[i][j] = A[i][j] ? 0 : 1
-            A[i][k] = A[i][k] ? 0 : 1
+            A[i][j] ^= 1
+            A[i][k] ^= 1
             j++, k--
         }
         if (j === k) {
-            A[i][j] = A[i][j] ? 0 : 1
+            A[i][j] ^= 1
         }
     }
     return A
