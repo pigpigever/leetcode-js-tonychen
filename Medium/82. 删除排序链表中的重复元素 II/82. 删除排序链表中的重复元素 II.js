@@ -11,11 +11,11 @@
  */
 var deleteDuplicates = function(head) {
     let firstPre = '', flag = false
-    let primtive = new ListNode(), target = primtive, next = head, pre = '', 
+    let primtive = new ListNode(), target = primtive, next = head, pre = ''
     primtive.next = head
     while (target) {
         if (target.val === (next && next.val)) {
-            firstPre = pre
+            firstPre = flag ? firstPre : pre
             flag = true
         } else if (flag) {
             firstPre.next = next
