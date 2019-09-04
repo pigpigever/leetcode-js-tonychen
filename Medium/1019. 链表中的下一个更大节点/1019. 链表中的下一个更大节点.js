@@ -27,4 +27,5 @@ var nextLargerNodes = function(head) {
         }
         head = head.next
     }
+    return ans
 };
