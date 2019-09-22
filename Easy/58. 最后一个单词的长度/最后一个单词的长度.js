@@ -6,7 +6,7 @@ var lengthOfLastWord = function(s) {
     let flag = 0, i = s.length - 1
     
     while (i >= 0) {
-        if (s[i] === ' ') {
+        if (s.charAt(i) === ' ') {
             if (flag) {
                 return flag
             }
@@ -17,8 +17,3 @@ var lengthOfLastWord = function(s) {
     }
     return flag
 };
-
-console.log(lengthOfLastWord('hello world'))
-
-// 输入: "Hello World"
-// 输出: 5
