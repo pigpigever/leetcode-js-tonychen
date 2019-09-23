@@ -9,36 +9,27 @@
  * @return {number}
  */
 var countCharacters = function(words, chars) {
-    function init () {
-        map.clear()
-        for (const char of chars) {
-            if (map.has(char)) {
-                map.set(char, map.get(char) + 1)
+    function getHashMap (strs) {
+        let map = new Map()
+        for (const str of strs) {
+            if (map.has(str)) {
+                map.set(str, map.get(str) + 1)
             } else {
-                map.set(char, 1)
+                map.set(str, 1)
             }
         }
+        return map
     }
-    let map = new Map(), sum = 0
+    let sum = 0, charsMap = getHashMap(chars)
     for (const word of words) {
-        init()
-        let flag = true
-        for (let i = 0; i < word.length; i++) {
-            if (map.has(word[i])) {
-                if (map.get(word[i]) <= 0) {
-                    flag = false
-                    break
-                } else {
-                    map.set(word[i], map.get(word[i]) - 1)
-                }
-            } else {
+        let wordMap = getHashMap(word), flag = true
+        for (let [key, value] of wordMap) {
+            if (!charsMap.has(key) || charsMap.get(key) < value) {
                 flag = false
                 break
             }
         }
-        if (flag) {
-            sum += word.length
-        }
+        sum += flag ? word.length : 0
     }
     return sum
 };
