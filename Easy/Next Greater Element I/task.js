@@ -1,31 +1,18 @@
 /**
-     * @param {number[]} findNums
-     * @param {number[]} nums
-     * @return {number[]}
-     */
-    var nextGreaterElement = function(findNums, nums) {
-        var result=[];
-        for(var i=0;i<findNums.length;i++){
-            var tag=undefined,isTrue=false;
-            for(var j=0;j<nums.length;j++){
-                if(findNums[i]==nums[j]){
-                    tag=j;
-                    break;
-                }
-            }
-            if(tag!==undefined){
-                for(var j=tag+1;j<nums.length;j++){
-                    if(findNums[i]<nums[j]){
-                        result.push(nums[j]);
-                        isTrue=true;
-                        break;
-                    }
-                }
-                if(!isTrue){result.push(-1)};
-            }
-            else{
-                result.push(-1);
-            }
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+var nextGreaterElement = function(nums1, nums2) {
+    const stack = [], map = new Map()
+    for (const num of nums2) {
+        while (stack.length && num > stack[0]) {
+            map.set(stack.shift(), num)
         }
-        return result;
-    };
+        stack.unshift(num)
+    }
+    while (stack.length) {
+        map.set(stack.shift(), -1)
+    }
+    return nums1.map((num) => map.get(num))
+};
