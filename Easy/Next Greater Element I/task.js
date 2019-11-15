@@ -4,21 +4,15 @@
  * @return {number[]}
  */
 var nextGreaterElement = function(nums1, nums2) {
-    const map = new Map()
-    const ans = []
-    for (let i = 0; i < nums2.length; i++) {
-        map.set(nums2[i], i)
-    }
-    for (const num of nums1) {
-        const targetIndex = map.get(num)
-        let flag = 0
-        for (let i = targetIndex + 1; i < nums2.length; i++) {
-            if (num < nums2[i]) {
-                flag = i
-                break
-            }
+    const stack = [], map = new Map()
+    for (const num of nums2) {
+        while (stack.length && num > stack[0]) {
+            map.set(stack.shift(), num)
         }
-        ans.push(flag ? nums2[flag] : -1)
+        stack.unshift(num)
     }
-    return ans
+    while (stack.length) {
+        map.set(stack.shift(), -1)
+    }
+    return nums1.map((num) => map.get(num))
 };
