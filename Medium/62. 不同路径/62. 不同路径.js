@@ -9,16 +9,15 @@ var uniquePaths = function(m, n) {
     }
     const ans = []
     for (let i = 0; i < n; i++) {
-        ans[i] = []
         for (let j = 0; j < m; j++) {
             if (i === 0 || j === 0) {
-                ans[i][j] = 1
+                ans[j] = 1
             } else {
-                ans[i][j] = ans[i - 1][j] + ans[i][j - 1]
+                ans[j] += ans[j - 1]
             }
         }
     }
-    return ans[n - 1][m - 1]
+    return ans[m - 1]
 };
 
-console.log(uniquePaths(7, 3))
+console.log(uniquePaths(6, 3))
