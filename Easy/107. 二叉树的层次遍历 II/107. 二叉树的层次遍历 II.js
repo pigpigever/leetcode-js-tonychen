@@ -10,24 +10,20 @@
  * @return {number[][]}
  */
 var levelOrderBottom = function(root) {
-    if (!root) {
-        return []
-    }
-    const res = [], queue = [root]
-    while (queue.length) {
-        let count = queue.length
-        const tmp = []
-        while (count--) {
-            const root = queue.shift(), left = root.left, right = root.right
-            tmp.push(root.val)
-            if (left) {
-                queue.push(left)
-            }
-            if (right) {
-                queue.push(right)
-            }
+    const res = []
+    const dfs = (node, level) => {
+        if (!node) {
+            return 
         }
-        res.unshift(tmp.slice())
+        const index = res.length - level - 1
+        if (index < 0) {
+            res.unshift([node.val])
+        } else {
+            res[index].push(node.val)
+        }
+        dfs(node.left, level + 1)
+        dfs(node.right, level + 1)
     }
+    dfs(root, 0)
     return res
 };
