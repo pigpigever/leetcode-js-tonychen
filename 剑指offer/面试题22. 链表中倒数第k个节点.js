@@ -11,20 +11,15 @@
  * @return {ListNode}
  */
 var getKthFromEnd = function(head, k) {
+    /**
+     * 获取列表长度
+     * @param {ListNode} node 
+     */
     const getListLength = (node) => {
         let len = 0
         while (node) {
-            if (node.next) {
-                if (node.next.next) {
-                    len += 2
-                } else {
-                    len += 1
-                }
-                node = node.next.next
-            } else {
-                len += 1
-                node = node.next
-            }
+            node = node.next
+            len++
         }
         return len
     }
@@ -36,7 +31,7 @@ var getKthFromEnd = function(head, k) {
     let start = len - k, count = 0
     while (count !== start && p) {
         p = p.next
-        count ++
+        count++
     }
     return p
 };
