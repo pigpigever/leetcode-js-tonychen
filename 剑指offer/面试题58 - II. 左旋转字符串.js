@@ -4,5 +4,5 @@
  * @return {string}
  */
 var reverseLeftWords = function(s, n) {
-    
+    return s.substr(n) + s.substr(0, n)
 };
