@@ -3,12 +3,23 @@
  * @return {string[]}
  */
 const restoreIpAddresses = function(s) {
+    /**
+     * 判断值的合法性
+     * @param val
+     * @return {boolean}
+     */
     const isValid = (val) => {
         if (val < 0 || val > 255 || parseInt(val).toString().length !== val.length) {
             return false
         }
         return true
     }
+    /**
+     * 回溯函数
+     * @param cnt
+     * @param currStr
+     * @param restStr
+     */
     const helper = (cnt, currStr, restStr) => {
         if (cnt >= MAX_CNT) {
             if (!restStr && cnt === MAX_CNT) {
@@ -28,6 +39,7 @@ const restoreIpAddresses = function(s) {
         return []
     }
     const res = []
+    // 最大位数
     const MAX_CNT = 4
     helper(0, '', s)
     return res
