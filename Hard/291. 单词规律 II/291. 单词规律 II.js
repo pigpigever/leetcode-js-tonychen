@@ -14,10 +14,7 @@ const wordPatternMatch = function(pattern, str) {
      */
     const isMatch = (index, str, forward, reverse) => {
         if (index >= pattern.length) {
-            if (!str) {
-                return true
-            }
-            return false
+            return !str
         }
         for (let i = 1; i <= str.length; i++) {
             // 假设之前已经有这段匹配了
