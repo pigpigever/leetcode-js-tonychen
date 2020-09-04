@@ -28,5 +28,29 @@ const canMeasureWater = function(x, y, z) {
     if (x + y < z) {
         return false
     }
-
+    const map = new Map()
+    const stack = [[0, 0]]
+    while (stack.length) {
+        const [first, second] = stack.pop()
+        const key = `${first}-${second}`
+        if (first === z || second === z || first + second === z) {
+            return true
+        }
+        if (map.has(key)) {
+            continue
+        }
+        map.set(key, true)
+        stack.push([x, second])
+        stack.push([first, y])
+        stack.push([0, second])
+        stack.push([first, 0])
+        stack.push([first - Math.min(first, y - second), second + Math.min(first, y - second)])
+        stack.push([first + Math.min(second, x - first), second - Math.min(second, x - first)])
+    }
+    return false
 }
+
+console.log(canMeasureWater(3, 5, 4))
+console.log(canMeasureWater(2, 6, 5))
+console.log(canMeasureWater(22003, 31237, 1))
+console.log(canMeasureWater(104579, 104593, 12444))
