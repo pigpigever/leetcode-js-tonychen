@@ -1,4 +1,10 @@
 const findLadders = function(beginWord, endWord, wordList) {
+    /**
+     * 判断值是否合法
+     * @param {string}  curr
+     * @param {string} next
+     * @return {boolean}
+     */
     const isValid = (curr, next) => {
         let flag = 0
         for (let i = 0; i < curr.length; i++) {
@@ -11,6 +17,12 @@ const findLadders = function(beginWord, endWord, wordList) {
         }
         return true
     }
+    /**
+     * 生成路径
+     * @param {string} beginWord
+     * @param {string} path
+     * @param {number} currLevel
+     */
     const helper = (beginWord, path, currLevel) => {
         if (currLevel > minLevel) {
             return
