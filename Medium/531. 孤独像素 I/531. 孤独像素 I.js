@@ -48,7 +48,10 @@ const findLonelyPixel = function(picture) {
         for (let j = 0; j < COL; j++) {
             // 如果这一行/列被搜索过且不存在孤独像素
             // 那么下次遇到它就不用再看了
-            if (notLonelyPixelsInRow[i] || notLonelyPixelsInCol[j]) {
+            if (notLonelyPixelsInRow[i]) {
+                break
+            }
+            if (notLonelyPixelsInCol[j]) {
                 continue
             }
             if (picture[i][j] === 'B') {
