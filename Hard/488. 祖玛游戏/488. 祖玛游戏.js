@@ -136,4 +136,4 @@ const findMinStep = function (board, hand) {
 // findMinStep('WWRRBBWW', 'WRBRW');
 // findMinStep('G', 'GGGGG');
 // findMinStep('RBYYBBRRB', 'YRBGB');
-findMinStep("RRWWRRW", "WWRRR")
+findMinStep("RRWWRRW", "WWRRR");
