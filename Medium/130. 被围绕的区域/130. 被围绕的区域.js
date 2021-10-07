@@ -35,12 +35,10 @@ const solve = function (board) {
     };
 
     for (let i = 0; i < row; i++) {
-        for (let j = 0; j < col; j++) {
-            if (board[i][j] === 'O') {
-                const marked = new Map();
-                if (!visited.has(`${i}-${j}`) && !findAroundArea(i, j, marked)) {
-                    fillBoard(marked);
-                }
+        if (board[i][0] === 'O') {
+            const marked = new Map();
+            if (!visited.has(`${i}-${j}`) && !findAroundArea(i, j, marked)) {
+                fillBoard(marked);
             }
         }
     }
